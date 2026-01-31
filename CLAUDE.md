@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## IMPORTANT: Documentation First
+
+**ALWAYS read the relevant documentation in `/docs` before generating any code.** The docs directory contains project standards and conventions that must be followed. Refer to these files first to ensure all generated code adheres to established patterns.
+
 ## Commands
 
 - `npm run dev` - Start development server at http://localhost:3000
@@ -25,3 +29,9 @@ Path alias `@/*` maps to the project root.
 ## Database
 
 Schema is defined in `src/db/schema.ts`. Database connection is exported from `src/db/index.ts`.
+
+## UI Standards
+
+See `docs/ui.md` for UI coding standards. Key points:
+- **ONLY use shadcn/ui components** - No custom components
+- **Date formatting** via date-fns using format `do MMM yyyy` (e.g., "1st Sep 2025")
