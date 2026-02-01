@@ -6,6 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **ALWAYS read the relevant documentation in `/docs` before generating any code.** The docs directory contains project standards and conventions that must be followed. Refer to these files first to ensure all generated code adheres to established patterns.
 
+- /docs/ui.md
+- /docs/data-fetching.md
+
 ## Commands
 
 - `npm run dev` - Start development server at http://localhost:3000
