@@ -1,6 +1,28 @@
 import { db } from "@/src/db";
-import { workoutsTable, workoutExercisesTable, exercisesTable } from "@/src/db/schema";
+import {
+  workoutsTable,
+  workoutExercisesTable,
+  exercisesTable,
+} from "@/src/db/schema";
 import { eq, and, gte, lt } from "drizzle-orm";
+
+export async function createWorkout(data: {
+  userId: string;
+  name: string;
+  startedAt: Date;
+  notes?: string;
+}) {
+  const result = await db
+    .insert(workoutsTable)
+    .values({
+      userId: data.userId,
+      name: data.name,
+      startedAt: data.startedAt,
+      notes: data.notes,
+    })
+    .returning();
+  return result[0];
+}
 
 export type WorkoutWithExercises = {
   id: number;

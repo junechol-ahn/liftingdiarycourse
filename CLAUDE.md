@@ -8,6 +8,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - /docs/ui.md
 - /docs/data-fetching.md
+- /docs/data-mutations.md
+- /docs/auth.md
 
 ## Commands
 
@@ -38,3 +40,10 @@ Schema is defined in `src/db/schema.ts`. Database connection is exported from `s
 See `docs/ui.md` for UI coding standards. Key points:
 - **ONLY use shadcn/ui components** - No custom components
 - **Date formatting** via date-fns using format `do MMM yyyy` (e.g., "1st Sep 2025")
+
+## Authentication
+
+See `docs/auth.md` for authentication standards. Key points:
+- **Clerk** is the exclusive authentication provider
+- Use `auth()` from `@clerk/nextjs/server` in Server Components
+- Use `useUser()` hook in Client Components
