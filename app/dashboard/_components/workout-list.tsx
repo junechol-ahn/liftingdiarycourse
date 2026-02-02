@@ -1,4 +1,7 @@
+"use client";
+
 import { format } from "date-fns";
+import { useRouter } from "next/navigation";
 import {
   Card,
   CardContent,
@@ -6,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { type WorkoutWithExercises } from "@/data/workouts";
 
 type WorkoutListProps = {
@@ -13,14 +17,24 @@ type WorkoutListProps = {
 };
 
 export function WorkoutList({ workouts }: WorkoutListProps) {
+  const router = useRouter();
+
   if (workouts.length === 0) {
     return (
-      <p className="text-muted-foreground">No workouts logged for this day.</p>
+      <div className="space-y-4">
+        <p className="text-muted-foreground">No workouts logged for this day.</p>
+        <Button onClick={() => router.push("/dashboard/workout/new")}>
+          Add Workout
+        </Button>
+      </div>
     );
   }
 
   return (
     <div className="space-y-4">
+      <Button onClick={() => router.push("/dashboard/workout/new")}>
+        Add Workout
+      </Button>
       {workouts.map((workout) => (
         <Card key={workout.id}>
           <CardHeader className="pb-3">
