@@ -8,6 +8,7 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import { Button } from "@/components/ui/button";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -36,12 +37,16 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <header className="flex justify-between items-center p-4">
-            <h1 className="text-xl font-bold">Lifting Diary</h1>
+          <header className="flex justify-between items-center p-4 bg-background border-b">
+            <h1 className="text-xl font-bold text-foreground">Lifting Diary</h1>
             <div className="flex items-center gap-4">
               <SignedOut>
-                <SignInButton mode="modal" />
-                <SignUpButton mode="modal" />
+                <SignInButton mode="modal">
+                  <Button variant="outline">Sign In</Button>
+                </SignInButton>
+                <SignUpButton mode="modal">
+                  <Button>Sign Up</Button>
+                </SignUpButton>
               </SignedOut>
               <SignedIn>
                 <UserButton />
