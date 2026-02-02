@@ -36,7 +36,7 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <header className="flex justify-between items-center p-4">
+          <header className="flex justify-between items-center p-4 bg-secondary">
             <h1 className="text-xl font-bold">Lifting Diary</h1>
             <div className="flex items-center gap-4">
               <SignedOut>
