@@ -24,16 +24,12 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
     <main className="container mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Workout Dashboard</h1>
 
-      <div className="flex gap-6">
-        <div className="shrink-0">
-          <Suspense fallback={<div>Loading calendar...</div>}>
-            <DashboardCalendar />
-          </Suspense>
-        </div>
+      <div className="space-y-6">
+        <Suspense fallback={<div>Loading calendar...</div>}>
+          <DashboardCalendar />
+        </Suspense>
 
-        <div className="flex-1">
-          <WorkoutList workouts={workouts} />
-        </div>
+        <WorkoutList workouts={workouts} />
       </div>
     </main>
   );
